@@ -74,7 +74,7 @@ function generateMarkdown(data) {
   ## Questions
   You can view my Github page here! → [Github Link](https://github.com/${data.githubUsername}) 
 
-  ${data.email}
+  Feel free to reach out to me @${data.email}
   
   `;
 }
