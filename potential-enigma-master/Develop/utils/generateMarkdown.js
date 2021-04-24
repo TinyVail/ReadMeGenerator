@@ -40,7 +40,7 @@ function renderLicenseSection(license) {
   if (license === "") {
     return "";
   } else {
-    return `${renderLicenseBadge(license)}\n${renderLicenseLink(license)}`;
+    return `${renderLicenseBadge(license)}\n\n${renderLicenseLink(license)}`;
   }
 
 }
@@ -49,19 +49,36 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   return `
   # ${data.projectTitle}
+  Table of Contents
+  1. [Description](#description)
+  2. [Installation](#installation-instructions)
+  3. [Usage Info](#usage-info)
+  4. [Contribution Guide](#contribution-guidelines)
+  5. [Testing Info](#testing-instructions)
+  6. [Licensing](#licensing-info)
+  7. [Questions](#questions)
+
+
   ## Description
   ${data.description}
   ## Installation Instructions
   ${data.installation}
   ## Usage Info
-  ${data.usageinfo}
+  ${data.usageInfo}
   ## Contribution Guidelines
   ${data.contributionGuidelines}
   ## Testing Instruction 
   ${data.testInstructions}
   ## Licensing info
   ${renderLicenseSection(data.license)}
+  ## Questions
+  You can view my Github page here! → [Github Link](https://github.com/${data.githubUsername}) 
+
+  ${data.email}
+  
   `;
 }
+
+
 
 module.exports = generateMarkdown;

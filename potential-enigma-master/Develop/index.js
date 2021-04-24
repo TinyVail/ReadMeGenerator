@@ -1,5 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+const fileSystem = require('fs');
 const generateMarkdown = require("./utils/generateMarkdown.js");
 
 // TODO: Create an array of questions for user input
@@ -48,11 +49,24 @@ const questions = [{
         `Mozilla Public License 2.0`,
         `Common Development and Distribution License`,
         `Eclipse Public License version 2.0`]
+},
+{
+    type: "input",
+    name: "githubUsername",
+    message: "Please enter your github username below",
+},
+{
+    type: "input",
+    name: "email",
+    message: "Please enter your email address below in which you'd like to be contacted at",
 }];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     console.log(data);
+    fileSystem.writeFile(fileName, data, function (errorName) {
+        console.log(errorName);
+    });
 }
 
 // TODO: Create a function to initialize app
